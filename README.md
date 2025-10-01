@@ -1,4 +1,4 @@
-# Dotfiles
+# My Dotfiles
 
 This repository contains my personal Linux dotfiles and scripts.
 Currently included:
