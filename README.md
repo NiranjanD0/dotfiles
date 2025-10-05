@@ -20,8 +20,8 @@ cd ~/dotfiles
 2. Install GNU Stow (if not already installed):
 
 ```bash
-sudo apt install stow      # Debian/Ubuntu
-# sudo pacman -S stow      # Arch
+sudo pacman -S stow      # Arch
+# sudo apt install stow      # Debian/Ubuntu
 ```
 
 3. Symlink configs to `$HOME`:
