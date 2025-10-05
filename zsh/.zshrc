@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-
+export PATH="$HOME/.local/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -102,8 +102,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi='nvim'
-
+alias vi="nvim"
+alias qwe="sudo"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -111,4 +111,7 @@ export NVM_DIR="$HOME/.nvm"
 
 eval $(thefuck --alias)
 export PATH="$HOME/bin:$PATH"
+[[ $- == *i* ]] && neofetch
 
+export PATH=$PATH:/home/niranjan/.spicetify
+export PATH="$HOME/.local/bin:$PATH"
