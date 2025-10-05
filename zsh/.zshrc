@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-export PATH="$HOME/.local/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -112,6 +112,3 @@ export NVM_DIR="$HOME/.nvm"
 eval $(thefuck --alias)
 export PATH="$HOME/bin:$PATH"
 [[ $- == *i* ]] && neofetch
-
-export PATH=$PATH:/home/niranjan/.spicetify
-export PATH="$HOME/.local/bin:$PATH"
