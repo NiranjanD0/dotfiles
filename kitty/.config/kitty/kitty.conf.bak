@@ -1,0 +1,63 @@
+background_opacity 1
+window_padding_width 4
+map f11 toggle_fullscreen
+
+font_family FiraCode NerdFont
+font_size 11.0
+
+# highlighting
+# selection_foreground #ffffff
+# selection_background #14b8a6
+
+# Tokyo Night colorscheme
+# foreground #c0caf5
+# background #1a1b26
+
+# shell_integration no_cursor
+cursor_trail 10
+cursor_trail_stack_threshold 0
+cursor_trail_decay 0.01 0.05
+cursor_shape block
+cursor_blink true
+
+# normal colors
+# Black
+# color0 #0b0c15
+# Red
+# color1 #d2556c
+# Green
+# color2 #7cd47b
+# Yellow
+# color3 #efb184
+# Blue
+# color4 #6ca1f3
+# Magenta
+# color5 #b78df0
+# Cyan
+# color6 #69bcf4
+# White
+# color7 #c0caf5
+
+# bright colors
+# Bright Black
+# color8  #39404a
+# Bright Red
+# color9  #f7768e
+# Bright Green
+# color10 #85e89d
+# Bright Yellow
+# color11 #f4cf8d
+# Bright Blue
+# color12 #8fb9ff
+# Bright Magenta
+# color13 #d9a3ff
+# Bright Cyan
+# color14 #8fd3ff
+# Bright White
+# color15 #f0f3f6
+
+
+# BEGIN_KITTY_THEME
+# Cherry Midnight
+include current-theme.conf
+# END_KITTY_THEME
