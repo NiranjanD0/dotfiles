@@ -29,6 +29,8 @@ sudo pacman -S stow      # Arch
 
 3. Symlink configs to `$HOME`:
 
+Example,
+
 ```bash
 cd ~/dotfiles
 stow zsh
