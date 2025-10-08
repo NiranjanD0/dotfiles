@@ -3,8 +3,10 @@
 This repository contains my personal Linux dotfiles and scripts.
 Currently included:
 
-* **Zsh / Oh My Zsh** (`.zshrc`, themes, plugins)
-* **Kitty terminal** (`kitty.conf`)
+* **Zsh / Oh My Zsh**
+* **Kitty terminal**
+* **Hyprland**
+* **waybar**
 
 ---
 
