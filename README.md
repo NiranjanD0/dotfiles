@@ -29,7 +29,7 @@ sudo pacman -S stow      # Arch
 
 3. Symlink configs to `$HOME`:
 
-Example,
+   Example,
 
 ```bash
 cd ~/dotfiles
@@ -39,6 +39,8 @@ stow scripts
 ```
 
 4. Verify symlinks:
+
+   Example,
 
 ```bash
 ls -l ~/.zshrc
