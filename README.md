@@ -7,6 +7,7 @@ Currently included:
 * **Kitty terminal**
 * **Hyprland**
 * **waybar**
+* **wofi**
 
 ---
 
