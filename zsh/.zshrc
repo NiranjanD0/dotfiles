@@ -114,4 +114,4 @@ eval $(thefuck --alias)
 export PATH="$HOME/bin:$PATH"
 [[ $- == *i* ]] && neofetch
 
-export PATH=$PATH:/home/niru/.spicetify
+export PATH=$PATH:/home/rio/.spicetify
