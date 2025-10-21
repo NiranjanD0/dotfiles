@@ -12,17 +12,22 @@
   "include": ["~/.config/waybar/modules"],
   "modules-left": [
     "hyprland/workspaces",
+    "custom/sysinfo",
+    "cpu",
+    "memory",
+    "temperature",
+    "wlr/taskbar",
+    "power-profiles-daemon",
     "hyprland/window"
   ],
   "modules-center": ["clock"],
   "modules-right": [
+      // "tray",
       "pulseaudio",
       "backlight",
-      "bluetooth",
       "battery",
-      "network",
-      "tray",
-      
+      "bluetooth",
+      "network", 
       "custom/notifications",
       "custom/power"
   ]

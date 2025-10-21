@@ -1,4 +1,48 @@
 {
+    // Taskbar
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "spacing": 5,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+
+    // System info
+    "custom/sysinfo": {
+        "format": "󰞘",
+        "tooltip-format": "System usage"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 10,
+        "format": " {}%",
+        "max-length": 10
+    },
+    "temperature": {
+        "thermal-zone": 0,
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "format": " {temperatureC}°C"
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+
     // Workspaces Module
     "hyprland/workspaces": {
         "all-outputs": true,
@@ -58,18 +102,7 @@
         "scroll-step": 5,
         "tooltip-format": "{percent}%"
     },
-
-    // Bluetooth
-    "bluetooth": {
-        "format": "󰂯",
-        "format-disabled": "󰂲",
-        "format-off": "󰂲",
-        "interval": 30,
-        "on-click": "blueman-manager",
-        "on-click-right": "sleep 0.1 && kill -9 $pgrep blueman-applet",
-        "format-no-controller": ""
-    },
-
+    
     // Battery
     "battery": {
         "bat": "BAT1",
@@ -86,7 +119,18 @@
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
         // "on-click-right": "~/.config/rofi/applets/battery.sh"
     },
-
+    
+    // Bluetooth
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "interval": 30,
+        "on-click": "~/scripts/toggle-bluetooth.sh",
+        "on-click-right": "blueman-manager",
+        "format-no-controller": ""
+    },
+    
     // Network settings
     "network": {
         "format": "{ifname}",
@@ -99,8 +143,7 @@
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 20,
-        "on-scroll-down": "sleep 0.1 && kill -9 $pgrep nm-applet",
-        "on-click-right": "~/.config/waybar/scripts/nmtui.sh"
+        "on-click-right": "kitty nmtui"
     },
 
     // System Tray

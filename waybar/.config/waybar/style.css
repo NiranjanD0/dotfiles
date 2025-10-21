@@ -1,5 +1,6 @@
-@define-color background shade(alpha(@theme_bg_color, 0.9), 0.9);
-@define-color text @theme_fg_color;
+@define-color background shade(alpha(white, 0.9), 0.9);
+@define-color text #2a2a2a;
+@define-color border alpha(black, 0.3);
 
 * {
     margin: 0;
@@ -12,6 +13,81 @@
 }
 
 /*================================================================
+=> Tools menu
+================================================================*/
+#custom-sysinfo,
+#power-profiles-daemon,
+#cpu,
+#memory,
+#temperature {
+    margin: 2px 0px;
+    font-size: 13px;
+    border: 1px solid alpha(@border, 0.33);
+    padding: 0px 8px 0px 8px;
+    font-weight: bold;
+    background: @background;
+    color: @text;
+}
+
+#cpu,
+#memory,
+#temperature {
+    padding: 0px 8px;
+    font-size: 11px;
+    font-weight: bolder;
+    }
+#temperature {
+    border-radius: 0px 6px 6px 0px;
+    border-left: none;
+    margin-right: 4px;
+}
+#power-profiles-daemon {
+    padding: 0px 12px 0px 6px;
+}
+#custom-sysinfo {
+    margin-left: 4px;
+    border-radius: 6px 0px 0px 6px;
+}
+/* #custom-sysinfo:hover,
+#custom-hyprshade:hover,
+#custom-hypridle:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+    color: @hover;
+}
+#power-profiles-daemon.balanced {
+    color: @text;
+}
+#power-profiles-daemon.performance {
+    color: @red;
+}
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
+#custom-hypridle.notactive {
+    color: @red;
+} */
+
+/*================================================================
+=> wlr/taskbar
+================================================================*/
+
+#taskbar {
+    margin: 2px 4px;
+    border-radius: 6px;
+    padding: 0px 8px 0px 8px;
+    border: 1px solid alpha(@border, 0.33);
+    background: @background;
+    color: @text;
+}
+
+#taskbar button {
+    min-width: 20px;
+    margin: 2px 3px;
+}
+
+/*================================================================
 => Workspaces
 ================================================================*/
 #workspaces {
@@ -19,7 +95,7 @@
     border-radius: 6px;
     padding: 1px;
     background: @background;
-    border: 1px solid @border;
+    border: 1px solid alpha(@border, 0.33);
 }
 #workspaces button {
     min-width: 20px;
@@ -35,15 +111,15 @@
 #workspaces button.active {
     min-width: 28px;
     transition: all 0.1s linear;
-    color: black;
+    color: white;
     background: @text;
 }
-#workspaces button:hover {
+#workspaces button:hover:not(.active){
     background: alpha(@text, 0.2);
     border: none;
 }
 #workspaces button.urgent {
-    background-color: @red;
+    background-color: red;
 }
 
 /*================================================================
@@ -64,13 +140,32 @@
 #clock {
     margin: 2px 4px;
     padding: 0px 8px 0px 8px;
-    border: 2px solid @accent;
     border-radius: 6px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     color: @text;
     background: @background;
+}
+
+/*================================================================
+=> Tray
+================================================================*/
+#tray {
+    margin: 2px 0px 2px 4px;
+    border-radius: 6px;
+    padding: 0px 8px 0px 8px;
+    background: @background;
+    border: 1px solid alpha(@border, 0.33);
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+#tray menu {
+    border-radius: 8px;
+    color: @text;
+    background-color: @background;
+    padding: 4px;
 }
 
 /*================================================================
@@ -107,23 +202,6 @@
 } */
 
 /*================================================================
-=> Bluetooth
-================================================================*/
-#bluetooth {
-    margin: 2px 0px;
-    padding: 0px 8px 0px 4px;
-    border: 1px solid alpha(@border, 0.33);
-    border-radius: 0px;
-    border-right: none;
-    border-left: none;
-    color: @text;
-    background: @background;
-}
-#bluetooth:hover {
-    color: shade(@hover, 1.25);
-}
-
-/*================================================================
 => Battery
 ================================================================*/
 #battery {
@@ -158,6 +236,23 @@
 }
 
 /*================================================================
+=> Bluetooth
+================================================================*/
+#bluetooth {
+    margin: 2px 0px;
+    padding: 0px 8px 0px 4px;
+    border: 1px solid alpha(@border, 0.33);
+    border-radius: 0px;
+    border-right: none;
+    border-left: none;
+    color: @text;
+    background: @background;
+}
+/* #bluetooth:hover {
+    color: shade(@hover, 1.25);
+} */
+
+/*================================================================
 => Network
 ================================================================*/
 #network {
@@ -172,29 +267,6 @@
 /* #network:hover {
     color: shade(@hover, 1.25);
 } */
-
-/*================================================================
-=> Tray
-================================================================*/
-#tray {
-    margin: 3px 2px;
-    border-radius: 6px;
-    padding: 0px 4px 0px 4px;
-    background: alpha(@background, 0.5);
-    border: 1px solid alpha(@border, 0.33);
-}
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-}
-#tray menu {
-    border-radius: 8px;
-    color: @text;
-    background-color: @background;
-    padding: 4px;
-}
 
 /*================================================================
 => Notifications
