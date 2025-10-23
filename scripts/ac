@@ -10,4 +10,5 @@ pkill swww || true
 hyprctl keyword monitor eDP-2,1920x1080@144,auto,1
 
 # Start the live wallpaper spirit
+pkill mpvpaper || true
 mpvpaper -o "loop no-audio" ALL /home/rio/dotfiles/wallpaper/live.mp4 &
