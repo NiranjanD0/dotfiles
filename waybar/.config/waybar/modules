@@ -126,8 +126,7 @@
         "format-disabled": "󰂲",
         "format-off": "󰂲",
         "interval": 30,
-        "on-click": "~/scripts/toggle-bluetooth.sh",
-        "on-click-right": "blueman-manager",
+        "on-click": "blueman-manager",
         "format-no-controller": ""
     },
     
