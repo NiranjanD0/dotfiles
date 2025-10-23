@@ -106,6 +106,7 @@ alias vi="nvim"
 alias qvi="sudo nvim"
 alias qw="sudo"
 alias ls="eza --icons"
+alias code="code --password-store="gnome-libsecret""
 
 export PATH="$HOME/dotfiles/scripts:$PATH"
 export NVM_DIR="$HOME/.nvm"
