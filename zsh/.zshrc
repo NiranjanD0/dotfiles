@@ -107,6 +107,7 @@ alias qvi="sudo nvim"
 alias qw="sudo"
 alias ls="eza --icons"
 alias code="code --password-store="gnome-libsecret""
+alias qwp="sudo pacman"
 
 export PATH="$HOME/dotfiles/scripts:$PATH"
 export NVM_DIR="$HOME/.nvm"
@@ -115,6 +116,6 @@ export NVM_DIR="$HOME/.nvm"
 
 eval $(thefuck --alias)
 export PATH="$HOME/bin:$PATH"
-[[ $- == *i* ]] && neofetch
+[[ $- == *i* ]] && pfetch
 
 export PATH=$PATH:/home/rio/.spicetify
