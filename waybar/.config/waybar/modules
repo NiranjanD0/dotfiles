@@ -2,7 +2,7 @@
     "custom/menu": {
         "format": "",
         "on-click": "~/dotfiles/scripts/app_launcher.sh",
-        "tooltip-format": "Application menu",
+        "tooltip-format": "Application menu"
     },
     // System info
     "custom/sysinfo": {
@@ -170,7 +170,7 @@
     // Power Menu
     "custom/power": {
         "format": "",
-        "on-click": "wlogout",
+        "on-click": "~/dotfiles/scripts/power_menu.sh",
         "tooltip-format": "Power Menu"
     }
 }

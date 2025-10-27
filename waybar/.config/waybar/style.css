@@ -159,6 +159,7 @@ margin: 2px 4px;
     padding: 0px 8px 0px 8px;
     border-radius: 6px;
     color: @text;
+    border: 1px solid alpha(@border, 0.33);
     background: @background;
 }
 
