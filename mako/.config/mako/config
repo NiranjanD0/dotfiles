@@ -34,4 +34,4 @@ border-color=#cba6f7
 
 [urgency=high]
 border-color=#f38ba8
-default-timeout=10000
+default-timeout=5000

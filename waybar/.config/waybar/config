@@ -22,7 +22,7 @@
   ],
   "modules-center": ["clock"],
   "modules-right": [
-      // "tray",
+      "tray",
       "pulseaudio",
       "backlight",
       "battery",
