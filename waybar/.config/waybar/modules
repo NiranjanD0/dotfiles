@@ -1,14 +1,9 @@
 {
-    // Taskbar
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 18,
-        "spacing": 5,
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close"
+    "custom/menu": {
+        "format": "",
+        "on-click": "~/dotfiles/scripts/app_launcher.sh",
+        "tooltip-format": "Application menu",
     },
-
     // System info
     "custom/sysinfo": {
         "format": "󰞘",

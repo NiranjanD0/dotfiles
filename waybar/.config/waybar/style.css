@@ -13,6 +13,23 @@
 }
 
 /*================================================================
+=> App Menu
+================================================================*/
+#custom-menu {
+margin: 2px 4px;
+    margin-left: 0px;
+    border-radius: 6px;
+    padding: 0px 12px 0px 8px;
+    font-size: 15px;
+    color: @text;
+    background: @background;
+    border: 1px solid @border;
+}
+/* #custom-menu:hover {
+    color: @hover;
+} */
+
+/*================================================================
 => Tools menu
 ================================================================*/
 #custom-sysinfo,

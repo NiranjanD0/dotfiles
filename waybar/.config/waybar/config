@@ -11,6 +11,7 @@
 
   "include": ["~/.config/waybar/modules"],
   "modules-left": [
+    "custom/menu",
     "hyprland/workspaces",
     "custom/sysinfo",
     "cpu",
