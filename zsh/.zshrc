@@ -110,6 +110,7 @@ alias code="code --password-store="gnome-libsecret""
 alias qwp="sudo pacman"
 
 export PATH="$HOME/dotfiles/scripts:$PATH"
+export PATH="$HOME/clone/Multithreaded-Client-Server-in-C:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
