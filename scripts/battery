@@ -1,15 +1,15 @@
 #!/bin/sh
 
 # Send the notification
-notify-send "🔋 Battery Mode On" "Unplugged — time to suffer"
+notify-send "🔋 Battery Mode On"
 
 # Kill the live wallpaper spirit
-pkill mpvpaper || true
-pkill swww-daemon || true
+# pkill mpvpaper || true
+# pkill swww-daemon || true
 
 # Set refresh rate to 60Hz
-hyprctl keyword monitor eDP-2,1920x1080@60,auto,1
+hyprctl keyword monitor eDP-1,1920x1080@60,auto,1
 
 # Start the static wallpaper spirit
-swww-daemon &
-swww img ~/dotfiles/wallpaper/static.jpg &
+# swww-daemon &
+# swww img ~/dotfiles/wallpaper/static.jpg &

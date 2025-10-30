@@ -1,14 +1,14 @@
 #!/bin/sh
 
 # Send the notification
-notify-send "⚡ AC Mode On" "Laptop plugged in, full juice mode activated"
+notify-send "⚡ AC Mode On"
 
 # Kill the static wallpaper spirit
-pkill swww || true
+# pkill swww || true
 
 # Set refresh rate to max (e.g., 144Hz)
-hyprctl keyword monitor eDP-2,1920x1080@144,auto,1
+hyprctl keyword monitor eDP-1,1920x1080@144,auto,1
 
 # Start the live wallpaper spirit
-pkill mpvpaper || true
-mpvpaper -o "loop no-audio" ALL /home/rio/dotfiles/wallpaper/live.mp4 &
+# pkill mpvpaper || true
+# mpvpaper -o "loop no-audio" ALL /home/rio/dotfiles/wallpaper/live.mp4 &
