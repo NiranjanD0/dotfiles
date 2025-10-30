@@ -313,7 +313,7 @@ margin: 2px 4px;
     margin-right: 0px;
     margin-left: 0px;
     border: 1px solid @border;
-    border-radius: 0px 6px 6px 0px;
+    border-radius: 6px;
     padding: 0px 12px 0px 8px;
     color: @text;
     background: @background;
