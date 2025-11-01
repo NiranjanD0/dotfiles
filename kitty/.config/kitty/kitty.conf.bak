@@ -1,63 +1,77 @@
-background_opacity 1
-window_padding_width 4
+background_opacity 0.4
+window_padding_width 10
 map f11 toggle_fullscreen
 
 font_family FiraCode NerdFont
-font_size 11.0
+font_size 10.0
 
-# highlighting
-# selection_foreground #ffffff
-# selection_background #14b8a6
+# The basic colors
+foreground              #ffffff
+background              #000000
+selection_foreground    #000000
+selection_background    #808080
 
-# Tokyo Night colorscheme
-# foreground #c0caf5
-# background #1a1b26
+# Cursor colors
+cursor                  #F5E0DC
+cursor_text_color       #1E1E2E
 
-# shell_integration no_cursor
-cursor_trail 10
-cursor_trail_stack_threshold 0
-cursor_trail_decay 0.01 0.05
-cursor_shape block
-cursor_blink true
+# URL underline color when hovering with mouse
+url_color               #F5E0DC
 
-# normal colors
-# Black
-# color0 #0b0c15
-# Red
-# color1 #d2556c
-# Green
-# color2 #7cd47b
-# Yellow
-# color3 #efb184
-# Blue
-# color4 #6ca1f3
-# Magenta
-# color5 #b78df0
-# Cyan
-# color6 #69bcf4
-# White
-# color7 #c0caf5
+# Kitty window border colors
+active_border_color     #B4BEFE
+inactive_border_color   #6C7086
+bell_border_color       #F9E2AF
 
-# bright colors
-# Bright Black
-# color8  #39404a
-# Bright Red
-# color9  #f7768e
-# Bright Green
-# color10 #85e89d
-# Bright Yellow
-# color11 #f4cf8d
-# Bright Blue
-# color12 #8fb9ff
-# Bright Magenta
-# color13 #d9a3ff
-# Bright Cyan
-# color14 #8fd3ff
-# Bright White
-# color15 #f0f3f6
+# OS Window titlebar colors
+wayland_titlebar_color system
+macos_titlebar_color system
 
+# Tab bar colors
+active_tab_foreground   #11111B
+active_tab_background   #CBA6F7
+inactive_tab_foreground #CDD6F4
+inactive_tab_background #181825
+tab_bar_background      #11111B
 
-# BEGIN_KITTY_THEME
-# Cherry Midnight
-include current-theme.conf
-# END_KITTY_THEME
+# Colors for marks (marked text in the terminal)
+mark1_foreground #1E1E2E
+mark1_background #B4BEFE
+mark2_foreground #1E1E2E
+mark2_background #CBA6F7
+mark3_foreground #1E1E2E
+mark3_background #74C7EC
+
+# The 16 terminal colors
+
+# black
+color0 #45475A
+color8 #585B70
+
+# red
+color1 #F38BA8
+color9 #F38BA8
+
+# green
+color2  #A6E3A1
+color10 #A6E3A1
+
+# yellow
+color3  #F9E2AF
+color11 #F9E2AF
+
+# blue
+color4  #89B4FA
+color12 #89B4FA
+
+# magenta
+color5  #F5C2E7
+color13 #F5C2E7
+
+# cyan
+color6  #94E2D5
+color14 #94E2D5
+
+# white
+color7  #BAC2DE
+color15 #A6ADC8
