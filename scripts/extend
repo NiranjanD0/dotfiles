@@ -41,8 +41,8 @@ trap cleanup INT TERM EXIT
 # === NOW WE CREATE YOUR HEADLESS ===
   echo "[wayvnc] Creating $VIRTUAL_MONITOR..."
   hyprctl output create headless $VIRTUAL_MONITOR
-  swww img ~/dotfiles/wallpaper/static.jpg --transition-type none --outputs HEADLESS-2
   sleep 0.5
+  swww img ~/dotfiles/wallpaper/static.jpg --transition-type none --outputs HEADLESS-2
 
 # === ASSIGN WORKSPACE AND ACTIVATE IT ===
 echo "[wayvnc] Moving workspace $VIRTUAL_WORKSPACE to $VIRTUAL_MONITOR..."
