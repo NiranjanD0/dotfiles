@@ -6,6 +6,7 @@ alias ls 'eza --icons'
 alias code 'code --password-store=gnome-libsecret'
 alias qwp 'sudo pacman'
 alias bye 'exit'
+alias l 'll -a'
 
 # PATHs
 set -gx PATH $HOME/dotfiles/scripts $PATH

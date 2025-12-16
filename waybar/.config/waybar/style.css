@@ -1,6 +1,6 @@
-@define-color background shade(alpha(white, 0.9), 0.9);
-@define-color text #2a2a2a;
-@define-color border alpha(black, 0.3);
+@define-color background shade(alpha(black, 0.9), 0.8);
+@define-color text #ffffff;
+@define-color border alpha(white, 0.3);
 
 * {
     margin: 0;
@@ -16,8 +16,7 @@
 => App Menu
 ================================================================*/
 #custom-menu {
-margin: 2px 4px;
-    margin-left: 0px;
+    margin: 2px 4px;
     border-radius: 6px;
     padding: 0px 12px 0px 8px;
     font-size: 15px;
@@ -30,6 +29,42 @@ margin: 2px 4px;
 } */
 
 /*================================================================
+=> Workspaces
+================================================================*/
+#workspaces {
+    margin: 2px 4px;
+    border-radius: 6px;
+    padding: 1px;
+    background: @background;
+    border: 1px solid @border;
+}
+#workspaces button {
+    min-width: 20px;
+    box-shadow: none;
+    margin: 2px 3px;
+    text-shadow: none;
+    border: none;
+    border-radius: 3px;
+    background: alpha(@text, 0.1);
+    color: alpha(@text, 0.5);
+    transition: all 0.1s linear;
+    border: 1px solid alpha(@border, 0.33);
+}
+#workspaces button.active {
+    min-width: 28px;
+    transition: all 0.1s linear;
+    color: rgb(48, 48, 48);
+    background: @text;
+}
+#workspaces button:hover:not(.active){
+    background: alpha(@text, 0.2);
+    border: none;
+}
+#workspaces button.urgent {
+    background-color: rgb(83, 22, 22);
+}
+
+/*================================================================
 => Tools menu
 ================================================================*/
 #custom-sysinfo,
@@ -39,11 +74,11 @@ margin: 2px 4px;
 #temperature {
     margin: 2px 0px;
     font-size: 13px;
-    border: 1px solid alpha(@border, 0.33);
     padding: 0px 8px 0px 8px;
     font-weight: bold;
     background: @background;
     color: @text;
+    border: 1px solid @border;
 }
 
 #cpu,
@@ -94,7 +129,7 @@ margin: 2px 4px;
     margin: 2px 4px;
     border-radius: 6px;
     padding: 0px 8px 0px 8px;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     background: @background;
     color: @text;
 }
@@ -105,48 +140,13 @@ margin: 2px 4px;
 }
 
 /*================================================================
-=> Workspaces
-================================================================*/
-#workspaces {
-    margin: 2px 4px;
-    border-radius: 6px;
-    padding: 1px;
-    background: @background;
-    border: 1px solid alpha(@border, 0.33);
-}
-#workspaces button {
-    min-width: 20px;
-    box-shadow: none;
-    margin: 2px 3px;
-    text-shadow: none;
-    border: none;
-    border-radius: 3px;
-    background: alpha(@text, 0.1);
-    color: alpha(@text, 0.5);
-    transition: all 0.1s linear;
-}
-#workspaces button.active {
-    min-width: 28px;
-    transition: all 0.1s linear;
-    color: white;
-    background: @text;
-}
-#workspaces button:hover:not(.active){
-    background: alpha(@text, 0.2);
-    border: none;
-}
-#workspaces button.urgent {
-    background-color: red;
-}
-
-/*================================================================
 => Active Window
 ================================================================*/
 #window {
     margin: 2px 4px;
     border-radius: 6px;
     padding: 0px 8px 0px 8px;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     background: @background;
     color: @text;
 }
@@ -159,7 +159,7 @@ margin: 2px 4px;
     padding: 0px 8px 0px 8px;
     border-radius: 6px;
     color: @text;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     background: @background;
 }
 
@@ -171,7 +171,7 @@ margin: 2px 4px;
     border-radius: 6px;
     padding: 0px 8px 0px 8px;
     background: @background;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
 }
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -192,7 +192,7 @@ margin: 2px 4px;
 #pulseaudio {
     margin: 2px 0px 2px 4px;
     padding: 0px 8px 0px 8px;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     border-radius: 6px 0px 0px 6px;
     border-right: none;
     color: @text;
@@ -207,7 +207,7 @@ margin: 2px 4px;
 ===============================================================*/
 #backlight {
     margin: 2px 0px;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     border-radius: 0px;
     border-right: none;
     border-left: none;
@@ -225,7 +225,7 @@ margin: 2px 4px;
 #battery {
     margin: 2px 0px;
     padding: 0px 8px 0px 4px;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     border-radius: 0px;
     border-right: none;
     border-left: none;
@@ -259,7 +259,7 @@ margin: 2px 4px;
 #bluetooth {
     margin: 2px 0px;
     padding: 0px 8px 0px 4px;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     border-radius: 0px;
     border-right: none;
     border-left: none;
@@ -276,7 +276,7 @@ margin: 2px 4px;
 #network {
     margin: 2px 4px 2px 0px;
     padding: 0px 12px 0px 6px;
-    border: 1px solid alpha(@border, 0.33);
+    border: 1px solid @border;
     border-radius: 0px 6px 6px 0px;
     border-left: none;
     color: @text;
