@@ -20,7 +20,7 @@ transparency = 0.9 				#0-1, zero is transparent(stupid, ikr)
 
 [persistence]
 first_run = false
-last_tab = "debug"
+last_tab = "globals"
 
 [[theme]]
 name = "Catppuccin Mocha"
