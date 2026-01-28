@@ -51,6 +51,13 @@
         }
     },
 
+    // vd
+    "cffi/virtual-desktops": {
+        "module_path": "~/.config/waybar/modules/libwaybar_vd.so",
+        "format": "{name}",
+        "show_empty": false
+    },
+
     // Active Window Name
     "hyprland/window": {
         "format": "{title}",

@@ -65,48 +65,6 @@
 }
 
 /*================================================================
-=> Virtual Workspaces
-================================================================*/
-
-#waybar-vd {
-    margin: 2px 4px;
-    border-radius: 6px;
-    padding: 1px;
-    background: @background;
-    border: 1px solid @border;
-}
-
-#waybar-vd button {
-    min-width: 20px;
-    box-shadow: none;
-    margin: 2px 3px;
-    text-shadow: none;
-    border: none;
-    border-radius: 3px;
-    background: alpha(@text, 0.1);
-    color: alpha(@text, 0.5);
-    transition: all 0.1s linear;
-    border: 1px solid alpha(@border, 0.33);
-}
-
-#waybar-vd button.vdesk-focused {
-    min-width: 28px;
-    transition: all 0.1s linear;
-    color: rgb(48, 48, 48);
-    background: @text;
-}
-
-#waybar-vd button.hover:not(.vdesk-focused) {
-    background: alpha(@text, 0.2);
-    border: none;
-    min-width: 28px;
-}
-
-#waybar-vd button.vdesk-unfocused {
-    color: alpha(@text, 0.5);
-}
-
-/*================================================================
 => Tools menu
 ================================================================*/
 #custom-sysinfo,
