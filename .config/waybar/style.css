@@ -47,12 +47,10 @@
     border-radius: 3px;
     background: alpha(@text, 0.1);
     color: alpha(@text, 0.5);
-    transition: all 0.1s linear;
     border: 1px solid alpha(@border, 0.33);
 }
 #workspaces button.active {
     min-width: 28px;
-    transition: all 0.1s linear;
     color: rgb(48, 48, 48);
     background: @text;
 }
@@ -85,13 +83,13 @@
     border-radius: 3px;
     background: alpha(@text, 0.1);
     color: alpha(@text, 0.5);
-    transition: all 0.1s linear;
+    transition: all 0.3s ease-out;
     border: 1px solid alpha(@border, 0.33);
 }
 
 #waybar-vd button.vdesk-focused {
     min-width: 28px;
-    transition: all 0.1s linear;
+    transition: all 0.3s ease-out;
     color: rgb(48, 48, 48);
     background: @text;
 }
@@ -177,8 +175,8 @@
 }
 
 #taskbar button {
-    min-width: 20px;
     margin: 2px 3px;
+    transition: all 0.3s ease-out;
 }
 
 /*================================================================
@@ -191,6 +189,7 @@
     border: 1px solid @border;
     background: @background;
     color: @text;
+    transition: all 0.3s ease-out;
 }
 
 /*================================================================
