@@ -3,7 +3,8 @@ function fish_prompt
         set -g VIRTUAL_ENV_DISABLE_PROMPT true
     end
     set_color yellow
-    printf '╭─%s' $USER
+    # printf '➜ %s' $USER
+    printf ' %s' $USER
     set_color normal
     printf '@'
 
@@ -16,11 +17,7 @@ function fish_prompt
     printf '%s' (prompt_pwd)
     set_color normal
 
-    # Line 2
-    echo
-    if test -n "$VIRTUAL_ENV"
-        printf "(%s) " (set_color blue)(path basename $VIRTUAL_ENV)(set_color normal)
-    end
-    printf '╰➜ '
+    set_color yellow
+    printf ' ➜ '
     set_color normal
 end
