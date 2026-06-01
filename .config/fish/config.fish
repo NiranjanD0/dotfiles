@@ -13,30 +13,40 @@ set -gx PATH $HOME/dotfiles/scripts $PATH
 set -gx PATH $HOME/clone/Multithreaded-Client-Server-in-C $PATH
 set -gx PATH $HOME/bin $PATH
 
-# NVM (fish version — needs bass installed)
-set -gx NVM_DIR $HOME/.nvm
-if test -s $NVM_DIR/nvm.sh
-    bass source $NVM_DIR/nvm.sh
-end
-if test -s $NVM_DIR/bash_completion
-    bass source $NVM_DIR/bash_completion
-end
-
 # thefuck
 thefuck --alias | source
 
-# pfetch on interactive shells
+# Commands to run in interactive sessions can go here
 if status is-interactive
+    # No greeting
+    set fish_greeting
     pfetch
+
+    # Use starship
+    function starship_transient_prompt_func
+        starship module character
+    end
+    if test "$TERM" != "linux"
+        starship init fish | source
+        enable_transience
+    end
+    
+    # Colors
+    if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+        cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+    end
+
+    # Aliases
+    # kitty doesn't clear properly so we need to do this weird printing
+    alias clear "printf '\033[2J\033[3J\033[1;1H'"
+    alias celar "printf '\033[2J\033[3J\033[1;1H'"
+    alias claer "printf '\033[2J\033[3J\033[1;1H'"
+    alias pamcan pacman
+    alias q 'qs -c ii'
+    if test "$TERM" != "linux"
+        alias ls 'eza --icons'
+    end
+    if test "$TERM" = "xterm-kitty"
+        alias ssh 'kitten ssh'
+    end
 end
-
-
-# pnpm
-set -gx PNPM_HOME "/home/rio/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
-
-# Created by `pipx` on 2026-04-17 20:54:17
-set PATH $PATH /home/rio/.local/bin
