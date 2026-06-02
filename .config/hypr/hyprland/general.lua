@@ -16,11 +16,7 @@ hl.gesture({
     direction = "pinch",
     action = "fullscreen"
 })
-hl.gesture({
-    fingers = 4,
-    direction = "horizontal",
-    action = "workspace"
-})
+
 hl.gesture({
     fingers = 4,
     direction = "up",
@@ -37,14 +33,6 @@ hl.gesture({
 })
 
 hl.config({
-    gestures = {
-        workspace_swipe_distance = 700,
-        workspace_swipe_cancel_ratio = 0.2,
-        workspace_swipe_min_speed_to_force = 5,
-        workspace_swipe_direction_lock = true,
-        workspace_swipe_direction_lock_threshold = 10,
-        workspace_swipe_create_new = true
-    },
     general = {
         -- Gaps and border
         gaps_in = 1,
@@ -303,3 +291,10 @@ hl.config({
         force_zero_scaling = true
     }
 })
+
+-- Virtual desktops plugin configuration
+hl.exec_cmd("hyprctl keyword plugin:virtual-desktops:names '1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10'")
+hl.exec_cmd("hyprctl keyword plugin:virtual-desktops:cycleworkspaces 0")
+hl.exec_cmd("hyprctl keyword plugin:virtual-desktops:rememberlayout size")
+hl.exec_cmd("hyprctl keyword plugin:virtual-desktops:notifyinit 0")
+hl.exec_cmd("hyprctl keyword plugin:virtual-desktops:verbose_logging 0")

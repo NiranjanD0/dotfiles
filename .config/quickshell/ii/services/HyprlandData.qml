@@ -21,6 +21,7 @@ Singleton {
     property var activeWorkspace: null
     property var monitors: []
     property var layers: ({})
+    property int activeVdeskId: 1
 
     // Convenient stuff
 
@@ -68,6 +69,11 @@ Singleton {
         updateMonitors();
         updateLayers();
         updateWorkspaces();
+        updateVdesk();
+    }
+
+    function updateVdesk() {
+        getActiveVdesk.running = true;
     }
 
     function biggestWindowForWorkspace(workspaceId) {
@@ -89,6 +95,13 @@ Singleton {
         function onRawEvent(event) {
             // console.log("Hyprland raw event:", event.name);
             if (["openlayer", "closelayer", "screencast"].includes(event.name)) return;
+            // Track vdesk changes via the plugin's IPC event
+            if (event.name === "vdesk") {
+                var id = parseInt(event.data);
+                if (!isNaN(id)) {
+                    root.activeVdeskId = id;
+                }
+            }
             updateAll()
         }
     }
@@ -160,6 +173,29 @@ Singleton {
             id: activeWorkspaceCollector
             onStreamFinished: {
                 root.activeWorkspace = JSON.parse(activeWorkspaceCollector.text);
+            }
+        }
+    }
+
+    Process {
+        id: getActiveVdesk
+        command: ["hyprctl", "printdesk", "-j"]
+        stdout: StdioCollector {
+            id: activeVdeskCollector
+            onStreamFinished: {
+                try {
+                    var data = JSON.parse(activeVdeskCollector.text);
+                    if (data && data.id !== undefined) {
+                        root.activeVdeskId = data.id;
+                    }
+                } catch (e) {
+                    // printdesk may not return JSON on all versions;
+                    // fallback: parse "vdesk id N" text format
+                    var match = activeVdeskCollector.text.match(/(\d+)/);
+                    if (match) {
+                        root.activeVdeskId = parseInt(match[1]);
+                    }
+                }
             }
         }
     }

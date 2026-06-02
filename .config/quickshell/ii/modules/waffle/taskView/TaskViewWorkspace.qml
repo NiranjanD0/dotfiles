@@ -18,7 +18,7 @@ WMouseAreaButton {
     property bool newWorkspace: false
     property bool droppable: false
 
-    readonly property bool isActiveWorkspace: HyprlandData.activeWorkspace?.id === root.workspace
+    readonly property bool isActiveWorkspace: HyprlandData.activeVdeskId === root.workspace
     readonly property real screenWidth: QsWindow.window?.width ?? 0
     readonly property real screenHeight: QsWindow.window?.height ?? 0
     readonly property real screenAspectRatio: screenWidth / screenHeight

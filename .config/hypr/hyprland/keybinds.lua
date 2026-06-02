@@ -195,110 +195,99 @@ hl.bind("SUPER + Space", hl.dsp.window.float({ action = "toggle" }), { descripti
 --     { description = "Window: Fullscreen spoof" })
 -- hl.bind("SUPER + P", hl.dsp.window.pin(), { description = "Window: Pin" })
 
---#/# bind = SUPER+ALT, Hash,, -- Send to workspace -- (1, 2, 3,...)
+--#/# bind = SUPER+ALT, Hash,, -- Send to vdesk -- (1, 2, 3,...)
 for i = 1, 10 do
-    hl.bind("SUPER + ALT + " .. (i % 10), function()
-        hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
-    end, { description = "Window: Send to workspace " .. i })
+    hl.bind("SUPER + ALT + " .. (i % 10), hl.dsp.exec_cmd("hyprctl dispatch movetodesksilent " .. i),
+        { description = "Window: Send to vdesk " .. i })
 end
 --# We also use raw keycodes because some keyboard layouts register number keys as different chars. The codes can be verified with `wev`
 for i = 1, 10 do
     local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
-    hl.bind("SUPER + ALT + code:" .. numberkey[i], function()
-        hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
-    end)
+    hl.bind("SUPER + ALT + code:" .. numberkey[i], hl.dsp.exec_cmd("hyprctl dispatch movetodesksilent " .. i))
 end
 --# keypad numbers
 for i = 1, 10 do
     local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
-    hl.bind("SUPER + ALT + code:" .. numpadkey[i], function()
-        hl.dispatch(hl.dsp.window.move({ workspace = workspace_in_group(i), follow = false }))
-    end)
+    hl.bind("SUPER + ALT + code:" .. numpadkey[i], hl.dsp.exec_cmd("hyprctl dispatch movetodesksilent " .. i))
 end
 
---# #/# bind = SUPER+SHIFT, Scroll ↑/↓,, -- Send to workspace left/right
+--# #/# bind = SUPER+SHIFT, Scroll ↑/↓,, -- Send to vdesk left/right
 for i = 1, 4 do
     local key = { "SUPER + SHIFT + mouse_", "SUPER + ALT + mouse_" }
     local keycombos = { key[1] .. "down", key[1] .. "up", key[2] .. "down", key[2] .. "up" }
-    local prefix = { "r-", "r+", "r-", "r+" }
-    hl.bind(keycombos[i], hl.dsp.window.move({ workspace = prefix[i] .. "1" }))
+    local dispatchers = { "movetoprevdesk", "movetonextdesk", "movetoprevdesk", "movetonextdesk" }
+    hl.bind(keycombos[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i]))
 end
 
---#/# bind = SUPER+SHIFT, Page_↑/↓,, -- Send to workspace left/right
+--#/# bind = SUPER+SHIFT, Page_↑/↓,, -- Send to vdesk left/right
 for i = 1, 2 do
     local keydirs = { "Up", "Down" }
-    local prefix = { "r-", "r+" }
+    local dispatchers = { "movetoprevdesk", "movetonextdesk" }
     local descdir = { "left", "right" }
-    hl.bind("SUPER + SHIFT + Page_" .. keydirs[i], hl.dsp.window.move({ workspace = prefix[i] .. "1" }), {description = "Window: Send to workspace " .. descdir[i]})
+    hl.bind("SUPER + SHIFT + Page_" .. keydirs[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i]), {description = "Window: Send to vdesk " .. descdir[i]})
 end
 for i = 1, 4 do
     local key = { "SUPER + ALT + Page_", "CTRL + SUPER + SHIFT + " }
     local keycombos = { key[1] .. "down", key[1] .. "up", key[2] .. "Right", key[2] .. "Left" }
-    local prefix = { "r+", "r-", "r+", "r-" }
-    hl.bind(keycombos[i], hl.dsp.window.move({ workspace = prefix[i] .. "1" })) -- # [hidden]
+    local dispatchers = { "movetonextdesk", "movetoprevdesk", "movetonextdesk", "movetoprevdesk" }
+    hl.bind(keycombos[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i])) -- # [hidden]
 end
 
 hl.bind("SUPER + ALT + S",
     hl.dsp.window.move({ workspace = "special:special", follow = false }), { description = "Window: Send to scratchpad" })
 hl.bind("CTRL + SUPER + S", hl.dsp.workspace.toggle_special("special"))
 
---##! Workspace
+--##! Vdesk
 --# Switching
---#/# bind = SUPER, Hash,, -- Focus workspace -- (1, 2, 3,...)
+--#/# bind = SUPER, Hash,, -- Focus vdesk -- (1, 2, 3,...)
 for i = 1, 10 do
-    hl.bind("SUPER + " .. (i % 10), function()
-        hl.dispatch(hl.dsp.focus({ workspace = workspace_in_group(i) }))
-    end, { description = "Workspace: Focus " .. i })
+    hl.bind("SUPER + " .. (i % 10), hl.dsp.exec_cmd("hyprctl dispatch vdesk " .. i),
+        { description = "Vdesk: Focus " .. i })
 end
 --# We also use raw keycodes because some keyboard layouts register number keys as different chars. The codes can be verified with `wev`
 for i = 1, 10 do
     local numberkey = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
-    hl.bind("SUPER + code:" .. numberkey[i], function()
-        hl.dispatch(hl.dsp.focus({ workspace = workspace_in_group(i) }))
-    end)
+    hl.bind("SUPER + code:" .. numberkey[i], hl.dsp.exec_cmd("hyprctl dispatch vdesk " .. i))
 end
 --# keypad numbers
 for i = 1, 10 do
     local numpadkey = { 87, 88, 89, 83, 84, 85, 79, 80, 81, 90 }
-    hl.bind("SUPER + code:" .. numpadkey[i], function()
-        hl.dispatch(hl.dsp.focus({ workspace = workspace_in_group(i) }))
-    end)
+    hl.bind("SUPER + code:" .. numpadkey[i], hl.dsp.exec_cmd("hyprctl dispatch vdesk " .. i))
 end
 
---#/# bind = CTRL+SUPER, ←/→,, -- Focus left/right
---#/# bind = CTRL+SUPER+ALT, ←/→,, -- # [hidden] Focus busy left/right
+--#/# bind = CTRL+SUPER, ←/→,, -- Focus prev/next vdesk
 for i = 1, 2 do
     local keys = { "Left", "Right" }
-    local prefix = { "r-", "r+" }
+    local dispatchers = { "prevdesk", "nextdesk" }
     local descdir = { "left", "right" }
-    hl.bind("CTRL + SUPER + " .. keys[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }), {description = "Workspace: Focus " .. descdir[i]})
+    hl.bind("CTRL + SUPER + " .. keys[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i]), {description = "Vdesk: Focus " .. descdir[i]})
 end
 for i = 1, 2 do
     local keys = { "Left", "Right" }
-    local prefix = { "m-", "m+" }
-    hl.bind("CTRL + SUPER + ALT + " .. keys[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+    local dispatchers = { "prevdesk", "nextdesk" }
+    hl.bind("CTRL + SUPER + ALT + " .. keys[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i]))
 end
---#/# bind = SUPER, Page_↑/↓,, -- Focus left/right
+--#/# bind = SUPER, Page_↑/↓,, -- Focus prev/next vdesk
 for i = 1, 4 do
     local key = { "SUPER + Page_Down", "SUPER + Page_Up" }
     local keycombos = { key[1], key[2], "CTRL + " .. key[1], "CTRL + " .. key[2] }
-    local prefix = { "r+", "r-", "r+", "r-" }
-    hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+    local dispatchers = { "nextdesk", "prevdesk", "nextdesk", "prevdesk" }
+    hl.bind(keycombos[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i]))
 end
---#/# bind = SUPER, Scroll ↑/↓,, -- Focus left/right
+--#/# bind = SUPER, Scroll ↑/↓,, -- Focus prev/next vdesk
 for i = 1, 4 do
     local key = { "SUPER + mouse_up", "SUPER + mouse_down" }
     local keycombos = { key[1], key[2], "CTRL + " .. key[1], "CTRL + " .. key[2] }
-    local prefix = { "+", "-", "r+", "r-" }
-    hl.bind(keycombos[i], hl.dsp.focus({ workspace = prefix[i] .. "1" }))
+    local dispatchers = { "prevdesk", "nextdesk", "prevdesk", "nextdesk" }
+    hl.bind(keycombos[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i]))
 end
 --## Special
 -- hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("special"), { description = "Workspace: Toggle scratchpad" })
 hl.bind("SUPER + mouse:275", hl.dsp.workspace.toggle_special("special"))
-for i = 1, 4 do
-    local key = { "BracketLeft", "BracketRight", "Up", "Down" }
-    local prefix = { "-1", "+1", "r-5", "r+5" }
-    hl.bind("CTRL + SUPER + " .. key[i], hl.dsp.focus({ workspace = prefix[i] }))
+for i = 1, 2 do
+    local key = { "BracketLeft", "BracketRight" }
+    local dispatchers = { "prevdesk", "nextdesk" }
+    hl.bind("CTRL + SUPER + " .. key[i], hl.dsp.exec_cmd("hyprctl dispatch " .. dispatchers[i]))
 end
 
 --##! Virtual machines

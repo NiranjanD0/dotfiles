@@ -135,7 +135,7 @@ Variants {
                 cache: false
                 smooth: false
 
-                property int workspaceIndex: (bgRoot.monitor.activeWorkspace?.id ?? 1) - 1
+                property int workspaceIndex: HyprlandData.activeVdeskId - 1
                 property real middleFraction: 0.5
                 property real fraction: {
                     // 0 - start of the picture
