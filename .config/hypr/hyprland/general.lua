@@ -1,8 +1,15 @@
 -- MONITOR CONFIG
 hl.monitor({
-    output = "",
-    mode = "preferred",
+    output = "eDP-1",
+    mode = "preffered",
     position = "auto",
+    scale = 1
+})
+
+hl.monitor({
+    output = "HDMI-A-5",
+    mode = "1920x1080@144",
+    position = "auto-left",
     scale = 1
 })
 

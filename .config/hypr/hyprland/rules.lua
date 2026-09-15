@@ -169,6 +169,6 @@ hl.layer_rule({ match = { namespace = "quickshell:wTaskView" }, no_anim = true})
 hl.layer_rule({ match = { namespace = "gtk4-layer-shell" }, no_anim = true})
 
 -- Custom
-hl.window_rule({ match = { class = "^(kitty)$" }, float = true })
+hl.window_rule({ match = { class = "^(kitty)$" }, float = true, no_blur = false })
 hl.window_rule({ match = { class = "^(kitty)$" }, center = true })
 hl.window_rule({ match = { class = "^(kitty)$" }, size = { "800", "600" } })
