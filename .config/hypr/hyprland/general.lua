@@ -102,9 +102,18 @@ hl.config({
             enabled = true,
             range = 20,
             offset = {0, 2},
-            render_power = 10,
+            render_power = 4,
             color = "rgba(00000020)"
-
+        },
+        wobble = {
+            enabled = true,
+            mesh = 12,
+            stiffness = 200,
+            damping = 12,
+            mass = 1,
+            intensity = 0.2,
+            value_epsilon = 0.25,
+            velocity_epsilon = 2
         },
         -- Dim
         dim_inactive = true,
