@@ -71,12 +71,14 @@ Scope {
     }
 
     function toggleClipboard() {
+        GlobalStates.superReleaseMightTrigger = false;
         if (LauncherSearch.query.startsWith(Config.options.search.prefix.clipboard) || !GlobalStates.searchOpen) {
             GlobalStates.searchOpen = !GlobalStates.searchOpen;
         }
         LauncherSearch.ensurePrefix(Config.options.search.prefix.clipboard);
     }
     function toggleEmojis() {
+        GlobalStates.superReleaseMightTrigger = false;
         if (LauncherSearch.query.startsWith(Config.options.search.prefix.emojis) || !GlobalStates.searchOpen) {
             GlobalStates.searchOpen = !GlobalStates.searchOpen;
         }
@@ -138,6 +140,7 @@ Scope {
         description: "Toggle clipboard query on overview widget"
 
         onPressed: {
+            GlobalStates.superReleaseMightTrigger = false;
             root.toggleClipboard();
         }
     }
@@ -147,6 +150,7 @@ Scope {
         description: "Toggle emoji query on overview widget"
 
         onPressed: {
+            GlobalStates.superReleaseMightTrigger = false;
             root.toggleEmojis();
         }
     }

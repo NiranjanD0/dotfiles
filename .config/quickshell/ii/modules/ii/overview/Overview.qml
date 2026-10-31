@@ -104,6 +104,7 @@ Scope {
     }
 
     function toggleClipboard() {
+        GlobalStates.superReleaseMightTrigger = false;
         if (GlobalStates.overviewOpen && overviewScope.dontAutoCancelSearch) {
             GlobalStates.overviewOpen = false;
             return;
@@ -114,6 +115,7 @@ Scope {
     }
 
     function toggleEmojis() {
+        GlobalStates.superReleaseMightTrigger = false;
         if (GlobalStates.overviewOpen && overviewScope.dontAutoCancelSearch) {
             GlobalStates.overviewOpen = false;
             return;
@@ -167,6 +169,7 @@ Scope {
         description: "Toggles overview on press"
 
         onPressed: {
+            GlobalStates.superReleaseMightTrigger = false;
             GlobalStates.overviewOpen = !GlobalStates.overviewOpen;
         }
     }
@@ -199,6 +202,7 @@ Scope {
         description: "Toggle clipboard query on overview widget"
 
         onPressed: {
+            GlobalStates.superReleaseMightTrigger = false;
             overviewScope.toggleClipboard();
         }
     }
@@ -208,6 +212,7 @@ Scope {
         description: "Toggle emoji query on overview widget"
 
         onPressed: {
+            GlobalStates.superReleaseMightTrigger = false;
             overviewScope.toggleEmojis();
         }
     }

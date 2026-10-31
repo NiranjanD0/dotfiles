@@ -108,8 +108,8 @@ hl.config({
         wobble = {
             enabled = true,
             mesh = 12,
-            stiffness = 200,
-            damping = 12,
+            stiffness = 300,
+            damping = 20,
             mass = 1,
             intensity = 0.2,
             value_epsilon = 0.25,

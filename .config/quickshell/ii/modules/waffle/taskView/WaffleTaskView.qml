@@ -104,6 +104,7 @@ Scope {
         description: "Toggles overview on press"
 
         onPressed: {
+            GlobalStates.superReleaseMightTrigger = false;
             GlobalStates.overviewOpen = !GlobalStates.overviewOpen;
         }
     }
