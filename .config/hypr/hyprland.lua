@@ -42,3 +42,13 @@ end
 
 -- Shell overrides --
 require("hyprland.shellOverrides.main")
+
+-- Dux Shell (DMS) configuration --
+require("dms.colors")
+require("dms.outputs")
+-- require("dms.layout") -- Disabled to preserve original decorations from hyprland/general.lua
+require("dms.cursor")
+require("dms.input")
+require("dms.binds")
+require("dms.binds-user")
+require("dms.windowrules")

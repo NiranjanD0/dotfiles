@@ -3,7 +3,7 @@ hl.on("hyprland.start", function ()
 
     -- Bar, wallpaper
     hl.exec_cmd("$HOME/.config/hypr/hyprland/scripts/start_geoclue_agent.sh")
-    hl.exec_cmd("qs -c $qsConfig")
+    -- dms.service is started automatically by systemd (hyprland-session.target)
     hl.exec_cmd("$HOME/.config/hypr/custom/scripts/__restore_video_wallpaper.sh")
 
     -- Core components (authentication, lock screen, notification daemon)
@@ -16,9 +16,8 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("easyeffects --hide-window --service-mode")
 
     -- Clipboard: history
-    --hl.exec_cmd("wl-paste --watch cliphist store")
-    hl.exec_cmd("wl-paste --type text --watch bash -c 'cliphist store && qs -c $qsConfig ipc call cliphistService update'")
-    hl.exec_cmd("wl-paste --type image --watch bash -c 'cliphist store && qs -c $qsConfig ipc call cliphistService update'")
+    hl.exec_cmd("wl-paste --type text --watch cliphist store")
+    hl.exec_cmd("wl-paste --type image --watch cliphist store")
 
     -- Cursor
     hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 24")

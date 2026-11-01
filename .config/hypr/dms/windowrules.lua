@@ -6,3 +6,6 @@ hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dm
 
 -- DMS-RULE: id=dms-window-opaque, name=DMS Window Opaque
 hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$" }, opaque = true })
+
+-- DMS-RULE: id=dms-bar-layer, name=DMS Bar Layer
+hl.layer_rule({ match = { namespace = "^dms:bar$" }, xray = true })
